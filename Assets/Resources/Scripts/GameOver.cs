@@ -24,14 +24,15 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Reset();
-        }
     }
 
     private void Reset()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void OnRestart()
+    {
+        Reset();
     }
 }

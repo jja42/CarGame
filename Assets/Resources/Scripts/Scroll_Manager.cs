@@ -95,7 +95,7 @@ public class Scroll_Manager : MonoBehaviour
             {
                 break;
             }
-            fromposition.position = new Vector3(fromposition.position.x - 3.2f *Time.deltaTime - player.coins*.005f, fromposition.position.y, fromposition.position.z);
+            fromposition.position = new Vector3(fromposition.position.x - 3.2f *Time.deltaTime - player.coins*.002f, fromposition.position.y, fromposition.position.z);
             yield return null;
             }
         yield return null;

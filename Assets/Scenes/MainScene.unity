@@ -7843,6 +7843,7 @@ GameObject:
   - component: {fileID: 752692118}
   - component: {fileID: 752692120}
   - component: {fileID: 752692121}
+  - component: {fileID: 752692122}
   m_Layer: 5
   m_Name: Game Over Text
   m_TagString: Untagged
@@ -7949,6 +7950,37 @@ MonoBehaviour:
   pattern1: {fileID: 833017818}
   pattern2: {fileID: 1251431021}
   pattern3: {fileID: 1839327219}
+--- !u!114 &752692122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752692116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f852cd50b0de9d14fa7d144e44347dda,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Default
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &833017818 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7710675699435577056, guid: 9e8bb0ead32b49748872edc186363b4b,
@@ -8279,6 +8311,7 @@ GameObject:
   - component: {fileID: 2034981861}
   - component: {fileID: 2034981863}
   - component: {fileID: 2034981862}
+  - component: {fileID: 2034981864}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -8367,7 +8400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
-  moveSpeed: 3
+  HorizontalSpeed: 5
+  VerticalSpeed: 3
   gameOver: {fileID: 752692121}
   score_text: {fileID: 1858923694}
   smoke: {fileID: 618053122}
@@ -8542,6 +8576,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2034981864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034981857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f852cd50b0de9d14fa7d144e44347dda,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Default
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &5455864493942831151
 PrefabInstance:
   m_ObjectHideFlags: 0
