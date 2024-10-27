@@ -13,6 +13,7 @@ public class Car_Cont : MonoBehaviour
     float t;
     private float xspeed = .16f;
     public float moveSpeed = 3f;
+    float speed;
     int ypos = 0;
     int xpos = 0;
     public GameOver gameOver;
@@ -32,6 +33,7 @@ public class Car_Cont : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = moveSpeed * Time.deltaTime;
         score_text.text = "SCORE: " + score;
         if (!isMoving && !collided)
         {
@@ -81,7 +83,7 @@ public class Car_Cont : MonoBehaviour
             {
                 break;
             }
-            t += Time.deltaTime * moveSpeed;
+            t += Time.deltaTime * speed;
             entity.position = Vector3.Lerp(startPos, endPos, t);
             yield return 0;
         }
