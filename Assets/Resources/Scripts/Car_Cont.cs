@@ -38,6 +38,7 @@ public class Car_Cont : MonoBehaviour
         if (!isMoving && !collided)
         {
             input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            print(input);
             if (input != Vector2.zero)
             {
                 if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
