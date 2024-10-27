@@ -26,6 +26,13 @@ public class Car_Cont : MonoBehaviour
     public int score = 0;
     public int coins = 0;
 
+    public static bool start;
+
+    private void Awake()
+    {
+        start = false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +57,6 @@ public class Car_Cont : MonoBehaviour
                 endPos = new Vector3(transform.position.x, transform.position.y + (2f * System.Math.Sign(input.y)), startPos.z);
                 if(endPos.y > 3.6 || endPos.y < -.5f)
                 {
-                    print("Ree");
                     input.y = 0;
                     return;
                 }
@@ -80,7 +86,7 @@ public class Car_Cont : MonoBehaviour
 
     private void OnMove(InputValue value)
     {
-        if (!isMoving && !collided)
+        if (!isMoving && !collided && start)
         {
             Vector2 inputvector = value.Get<Vector2>();
             input = new Vector2(Mathf.RoundToInt(inputvector.x), Mathf.RoundToInt(inputvector.y));

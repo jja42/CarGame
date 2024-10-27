@@ -17,6 +17,10 @@ public class Scroll_Manager : MonoBehaviour
         spawn_timer = 0;
         entities = GameObject.FindGameObjectsWithTag("Car");
         pickups = GameObject.FindGameObjectsWithTag("Coin");
+    }
+
+    public void Begin()
+    {
         foreach (GameObject vehicle in entities)
         {
             if (vehicle != null)
@@ -41,48 +45,51 @@ public class Scroll_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (GameObject vehicle in entities)
+        if (Car_Cont.start)
         {
-            if (vehicle != null && vehicle.transform.position.x <= -13)
-            {
-                Destroy(vehicle);
-                spawn_timer++;
-            }
-        }
-        foreach (GameObject pickup in pickups)
-        {
-            if (pickup != null && pickup.transform.position.x <= -13)
-            {
-                Destroy(pickup);
-            }
-        }
-        if(spawn_timer == 19) { spawn_timer = 0; }
-        if (spawn_timer == 12)
-        {
-            spawn_timer++;
-            Instantiate(pattern1, new Vector3(22, 2.8f, -25.23f),Quaternion.identity);
-            Instantiate(pattern2, new Vector3(49.41f, 2.8f, -25.23f), Quaternion.identity);
-            Instantiate(pattern3, new Vector3(67.41f, 2.8f, -25.23f), Quaternion.identity);
-            
-            entities = GameObject.FindGameObjectsWithTag("Car");
             foreach (GameObject vehicle in entities)
             {
-                Movement_Track movement = (Movement_Track)vehicle.GetComponent(typeof(Movement_Track));
-                if (vehicle != null && movement.moving == false)
+                if (vehicle != null && vehicle.transform.position.x <= -13)
                 {
-                    movement.moving = true;
-                    StartCoroutine(movetoX(vehicle.transform, new Vector3(-13, vehicle.transform.position.y, vehicle.transform.position.z)));
+                    Destroy(vehicle);
+                    spawn_timer++;
                 }
             }
-            
-            pickups = GameObject.FindGameObjectsWithTag("Coin");
             foreach (GameObject pickup in pickups)
             {
-                Movement_Track movement = (Movement_Track)pickup.GetComponent(typeof(Movement_Track));
-                if (pickup != null && movement.moving == false)
+                if (pickup != null && pickup.transform.position.x <= -13)
                 {
-                    movement.moving = true;
-                    StartCoroutine(movetoX(pickup.transform, new Vector3(-13, pickup.transform.position.y, pickup.transform.position.z)));
+                    Destroy(pickup);
+                }
+            }
+            if (spawn_timer == 19) { spawn_timer = 0; }
+            if (spawn_timer == 12)
+            {
+                spawn_timer++;
+                Instantiate(pattern1, new Vector3(22, 2.8f, -25.23f), Quaternion.identity);
+                Instantiate(pattern2, new Vector3(49.41f, 2.8f, -25.23f), Quaternion.identity);
+                Instantiate(pattern3, new Vector3(67.41f, 2.8f, -25.23f), Quaternion.identity);
+
+                entities = GameObject.FindGameObjectsWithTag("Car");
+                foreach (GameObject vehicle in entities)
+                {
+                    Movement_Track movement = (Movement_Track)vehicle.GetComponent(typeof(Movement_Track));
+                    if (vehicle != null && movement.moving == false)
+                    {
+                        movement.moving = true;
+                        StartCoroutine(movetoX(vehicle.transform, new Vector3(-13, vehicle.transform.position.y, vehicle.transform.position.z)));
+                    }
+                }
+
+                pickups = GameObject.FindGameObjectsWithTag("Coin");
+                foreach (GameObject pickup in pickups)
+                {
+                    Movement_Track movement = (Movement_Track)pickup.GetComponent(typeof(Movement_Track));
+                    if (pickup != null && movement.moving == false)
+                    {
+                        movement.moving = true;
+                        StartCoroutine(movetoX(pickup.transform, new Vector3(-13, pickup.transform.position.y, pickup.transform.position.z)));
+                    }
                 }
             }
         }
