@@ -93,6 +93,14 @@ public class Car_Cont : MonoBehaviour
         }
     }   
 
+    private void OnQuit()
+    {
+        if (gameOver.gameObject.activeInHierarchy)
+        {
+            Application.Quit();
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Coin")
